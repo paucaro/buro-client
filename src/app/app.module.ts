@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { AuthModule } from '@auth0/auth0-angular';
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
       cacheLocation: 'localstorage',
       useRefreshTokens: true
     }),
+    
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
