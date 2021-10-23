@@ -3,12 +3,25 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 
+import { AuthModule } from '@auth0/auth0-angular';
+import { AppRoutingModule } from './app-routing.module';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DashboardComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule,
+    
+    AuthModule.forRoot({
+      domain: 'dev-alafcq5i.us.auth0.com',
+      clientId: '02tTo80WqESXL5G0UYxmppZCu2a1n71P',
+      cacheLocation: 'localstorage',
+      useRefreshTokens: true
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]
