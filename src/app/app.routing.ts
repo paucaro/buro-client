@@ -14,7 +14,7 @@ const routes: Routes =[
   },
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'login',
     pathMatch: 'full',
   }, {
     path: '',
@@ -23,7 +23,7 @@ const routes: Routes =[
       path: '',
       loadChildren: () => import('./layouts/admin-layout/admin-layout.module').then(m => m.AdminLayoutModule),
     }],
-    canActivate: [AuthGuard]
+    //canActivate: [AuthGuard]
   }
 ];
 
