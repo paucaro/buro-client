@@ -31,8 +31,8 @@ import { AuthModule } from '@auth0/auth0-angular';
     AuthModule.forRoot({
       domain: 'dev-alafcq5i.us.auth0.com',
       clientId: '02tTo80WqESXL5G0UYxmppZCu2a1n71P',
-      // cacheLocation: 'localstorage',
-      // useRefreshTokens: true
+      cacheLocation: 'localstorage',
+      useRefreshTokens: true
     }),
   ],
   declarations: [

@@ -3,6 +3,7 @@ import { ROUTES } from '../sidebar/sidebar.component';
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import { Router } from '@angular/router';
 import { AuthService } from '@auth0/auth0-angular';
+import { delay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-navbar',
@@ -19,6 +20,9 @@ export class NavbarComponent implements OnInit {
     constructor(location: Location,  private element: ElementRef, private router: Router, public auth: AuthService) {
       this.location = location;
           this.sidebarVisible = false;
+          if (this.auth.isAuthenticated$) {
+            this.auth.getAccessTokenSilently();
+          }
     }
 
     ngOnInit(){
@@ -39,9 +43,9 @@ export class NavbarComponent implements OnInit {
         this.auth.logout();
     }
 
-    loginWithRedirect() {
-        this.auth.loginWithRedirect();
-    }
+    // loginWithRedirect() {
+    //     this.auth.loginWithRedirect();
+    // }
 
     sidebarOpen() {
         const toggleButton = this.toggleButton;
