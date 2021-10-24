@@ -29,7 +29,7 @@ import { environment } from 'environments/environment';
 
       const headersConfig = {
         'Content-Type': 'application/json',
-        'Token': token,
+        'Authorization': token,
       };
       return new HttpHeaders(headersConfig);
     }
