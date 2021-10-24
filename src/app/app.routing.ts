@@ -6,19 +6,20 @@ import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { SigninComponent } from './signin/signin.component';
 import { AuthGuard } from './guards/auth.guard';
+import { LoggedInGuard } from './guards/loggedin.guard';
 import { AuthService } from './services/shared/auth.service';
 
 
 const routes: Routes =[
   {
-    path: 'login',
-    component: SigninComponent,
-    pathMatch: "full"
-  },
-  {
     path: '',
     redirectTo: 'login',
     pathMatch: 'full',
+  },
+  {
+    path: 'login',
+    component: SigninComponent,
+    canActivate: [LoggedInGuard]
   },
   {
     path: '',

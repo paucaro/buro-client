@@ -28,8 +28,8 @@ export class SigninComponent implements OnInit {
           Password: this.password,
       });
       let poolData = {
-        UserPoolId: environment.cognitoUserPoolId, // Your user pool id here
-        ClientId: environment.cognitoAppClientId // Your client id here
+        UserPoolId: environment.cognitoUserPoolId,
+        ClientId: environment.cognitoAppClientId
       };
 
       let userPool = new CognitoUserPool(poolData);
