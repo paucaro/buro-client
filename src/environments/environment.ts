@@ -6,5 +6,11 @@
 export const environment = {
   production: false,
   cognitoUserPoolId: 'us-east-1_2SdaiQ4TL',
-  cognitoAppClientId: '7vg0ldllh605ac2svenc9fnm27'
+  cognitoAppClientId: '7vg0ldllh605ac2svenc9fnm27',
+  host: '',
+  port: '',
+  dbhost: '',
+  dbport: '',
+  api_url: 'http://__ELBURL__/',
+  test: 'test',
 };
