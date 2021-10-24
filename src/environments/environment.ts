@@ -4,5 +4,12 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  host: '',
+  port: '',
+  dbhost: '',
+  dbport: '',
+  api_url: 'http://__ELBURL__/',
+  test: 'test',
+  socket_url: 'ws://__ELBURL__'
 };
