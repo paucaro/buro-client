@@ -1,20 +1,24 @@
-<div class="login">
-    <form class="custom-form" method="post">
-      <h1>Login</h1>
-      <input
-        type="email"
-        [(ngModel)]="email"
-        name="email"
-        placeholder="Email"
-        required="required"
-      />
-      <input
-        type="password"
-        [(ngModel)]="password"
-        name="password"
-        placeholder="Password"
-        required="required"
-      />
-      <button type="submit" (click)="login()">Log in</button>
-    </form>
-  </div>
+<form [formGroup]="userForm">
+    <div>
+        <h3 class="text-muted text-center mb-3">Login</h3>
+    </div>
+
+    <div class="form-group">
+        <input type="text" formControlName="username" class="form-control form-control-sm"
+            placeholder="User Name" autofocus="" [ngClass]="{ 'is-invalid': submitted && user.username.errors }" />
+        <div *ngIf="submitted && user.username.errors" class="invalid-feedback">
+            <div *ngIf="user.username.errors.required">Username is required</div>
+        </div>
+        <div *ngIf="error" class="text-danger text-sm-left">
+            <p>{{error}}</p>
+        </div>
+    </div>
+
+    <div class="form-group d-flex justify-content-center">
+
+        <a class="btn btn-warning text-white rounded-0 pl-5 pr-5" (click)="login()">Login
+            <i *ngIf="loading" class='fa fa-circle-o-notch fa-spin'></i>
+
+        </a>
+    </div>
+</form>
