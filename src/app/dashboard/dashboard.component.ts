@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Buro } from 'app/models/buro.model';
 import { BuritoService } from 'app/services/burito.service';
 import * as Chartist from 'chartist';
 
@@ -69,8 +70,10 @@ export class DashboardComponent implements OnInit {
   };
   ngOnInit() {
 
+    let listaBuros: Buro[]
     this.buroService.getContracargos().subscribe(data => {
-      console.log(data);
+      listaBuros = data;
+      console.log("data: " + listaBuros[0].cuenta.marca);
     },
     err => {
       console.error(err);

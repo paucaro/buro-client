@@ -23,15 +23,19 @@ import { ApiService } from "./shared/api.service";
         ngoData = [ngoData];
       }
       for (const key in ngoData) {
-        if (ngoData[key] !== undefined) {
+        if (ngoData[key] !== undefined && Number(ngoData[key].Key) > 10) {
           const data = ngoData[key];
           const buro: Buro = new Buro();
-          buro.id = data.id;
-          buro.codigoContracargo = data.codigoContracargo;
-          buro.descripcionContracargo = data.descripcionContracargo;
-          buro.importeContracargo = data.importeContracargo;
-          buro.folio = data.folio;
-          buro.estado = data.estado;
+          buro.id = data.Key;
+          buro.codigoContracargo = data.Record.codigoContracargo;
+          buro.descripcionContracargo = data.Record.descripcionContracargo;
+          buro.importeContracargo = data.Record.importeContracargo;
+          buro.folio = data.Record.folio;
+          buro.estado = data.Record.estado;
+          buro.operacion = data.Record.operacion;
+          buro.comercio = data.Record.comercio;
+          buro.usuario = data.Record.usuario;
+          buro.cuenta = data.Record.cuenta;
 
           buros.push(buro);
         }
