@@ -4,6 +4,9 @@ import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common'
 import { Router } from '@angular/router';
 import { AuthService } from '@auth0/auth0-angular';
 import { delay } from 'rxjs/operators';
+import { environment } from 'environments/environment';
+import { CognitoUserPool } from 'amazon-cognito-identity-js';
+
 
 @Component({
   selector: 'app-navbar',
@@ -39,8 +42,15 @@ export class NavbarComponent implements OnInit {
      });
     }
 
-    logout(){
-        this.auth.logout();
+    onLogout(): void {
+        let poolData = {
+          UserPoolId: environment.cognitoUserPoolId,
+          ClientId: environment.cognitoAppClientId
+        };
+        let userPool = new CognitoUserPool(poolData);
+        let cognitoUser = userPool.getCurrentUser();
+        cognitoUser?.signOut();
+        this.router.navigate(["login"])
     }
 
     // loginWithRedirect() {

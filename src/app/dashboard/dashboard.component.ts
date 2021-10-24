@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '@auth0/auth0-angular';
+import { BuritoService } from 'app/services/burito.service';
 import * as Chartist from 'chartist';
 
 @Component({
@@ -9,7 +9,8 @@ import * as Chartist from 'chartist';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(public auth: AuthService) { }
+  constructor(private buroService: BuritoService) { }
+
   startAnimationForLineChart(chart){
       let seq: any, delays: any, durations: any;
       seq = 0;
@@ -67,12 +68,19 @@ export class DashboardComponent implements OnInit {
       seq2 = 0;
   };
   ngOnInit() {
+
+    this.buroService.getContracargos().subscribe(data => {
+      console.log(data);
+    },
+    err => {
+      console.error(err);
+    });
       /* ----------==========     Daily Sales Chart initialization For Documentation    ==========---------- */
 
       const dataDailySalesChart: any = {
-          labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
+          labels: ['Bancomer', 'Industrial', 'Santander', 'Interestatal', 'Mexico', 'OpenPay'],
           series: [
-              [12, 17, 7, 17, 23, 18, 38]
+              [23, 17, 7, 17, 23, 18]
           ]
       };
 
