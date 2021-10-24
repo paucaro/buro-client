@@ -15,6 +15,7 @@ import {
 } from '@agm/core';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { AuthModule } from '@auth0/auth0-angular';
+import { SigninComponent } from './signin/signin.component';
 
 @NgModule({
   imports: [
@@ -38,6 +39,7 @@ import { AuthModule } from '@auth0/auth0-angular';
   declarations: [
     AppComponent,
     AdminLayoutComponent,
+    SigninComponent,
 
   ],
   providers: [],

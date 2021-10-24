@@ -4,9 +4,14 @@ import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { SigninComponent } from './signin/signin.component';
 import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes =[
+  {
+    path: 'login',
+    component: SigninComponent
+  },
   {
     path: '',
     redirectTo: 'dashboard',
@@ -18,7 +23,7 @@ const routes: Routes =[
       path: '',
       loadChildren: () => import('./layouts/admin-layout/admin-layout.module').then(m => m.AdminLayoutModule),
     }],
-    // canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   }
 ];
 
