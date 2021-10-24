@@ -26,7 +26,7 @@ import { environment } from 'environments/environment';
     setHeadersCustomer() {
       const user = localStorage.getItem("CognitoIdentityServiceProvider.7vg0ldllh605ac2svenc9fnm27.LastAuthUser");
       const token = localStorage.getItem(`CognitoIdentityServiceProvider.7vg0ldllh605ac2svenc9fnm27.${user}.idToken`);
-      console.log(token)
+
       const headersConfig = {
         'Content-Type': 'application/json',
         'Token': token,
