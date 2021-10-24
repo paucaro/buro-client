@@ -71,6 +71,29 @@ export class DashboardComponent implements OnInit {
 
     seq2 = 0;
   }
+  startAnimationForPieChart(chart) {
+    let seq2: any, delays2: any, durations2: any;
+
+    seq2 = 0;
+    delays2 = 80;
+    durations2 = 500;
+    chart.on("draw", function (data) {
+      if (data.type === "pie") {
+        seq2++;
+        data.element.animate({
+          opacity: {
+            begin: seq2 * delays2,
+            dur: durations2,
+            from: 0,
+            to: 1,
+            easing: "ease",
+          },
+        });
+      }
+    });
+
+    seq2 = 0;
+  }
   ngOnInit() {
     let listaBuros: Buro[];
     this.buroService.getContracargos().subscribe(
@@ -87,7 +110,8 @@ export class DashboardComponent implements OnInit {
         }).length;
         
 
-        //// bar
+        // Niveles de contracargos por banco o procesador
+        //// bar 
         var datawebsiteViewsChart = {
           labels: ["BBVA", "OPENPAY"],
           series: [[bbvaCount, openPayCount]]
@@ -123,7 +147,28 @@ export class DashboardComponent implements OnInit {
         //start animation for the Emails Subscription Chart
         this.startAnimationForBarChart(websiteViewsChart);
 
-        //// 
+        //// ---------------------------------------------
+        // Niveles de contracargos por Nombre y apellidos tarjeta habiente
+        //// Pie chart
+
+        // let unique = listaBuros.filter((item, i, ar) => {
+        //   return listaBuros[i].usuario.nombreComprador === item.usuario.nombreComprador;
+        // });
+
+        var dataPieChat = {
+          series: [5, 3, 4, 6, 2]
+        };
+        
+        var sum = function(a, b) { return a + b };
+        
+        var completerPie = new Chartist.Pie('#completedTasksChart', dataPieChat, {
+          labelInterpolationFnc: function(value) {
+            return Math.round(value / dataPieChat.series.reduce(sum) * 100) + '%';
+          }
+        });
+
+        this.startAnimationForPieChart(completerPie);
+
         const dataCompletedTasksChart: any = {
           labels: ["BBVA", "OPENPAY"],
           series: [[bbvaCount, openPayCount]]
@@ -148,6 +193,15 @@ export class DashboardComponent implements OnInit {
         this.startAnimationForLineChart(completedTasksChart);
 
         ////////////////////////
+
+        // 10 últimas direcciones de compra
+        // for (let buro in listaBuros) {
+        //   let regex = /(\d{1,2})\/(\d{1,2})\/(\d{4})/.exec(buro.operacion.fechaVenta);
+        //   buro.operacion.fechaVenta = new Date(Number(regex[3]), Number(regex[2]) - 1, Number(regex[1]))  
+        // }
+        
+        
+        let ultimasCompras = listaBuros.slice(0,10);
 
         const dataDailySalesChart: any = {
           labels: ["BBVA", "OPENPAY"],
