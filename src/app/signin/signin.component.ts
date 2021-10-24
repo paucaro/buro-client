@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { AuthenticationDetails, CognitoUser, CognitoUserPool } from 'amazon-cognito-identity-js';
 import { environment } from 'environments/environment';
+import { ApiService } from 'app/services/shared/api.service';
 
 @Component({
   selector: 'signin',
@@ -15,7 +16,7 @@ export class SigninComponent implements OnInit {
   username: string = "";
   password: string = "";
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private apiService: ApiService) { }
 
   ngOnInit(): void { }
 
@@ -36,6 +37,7 @@ export class SigninComponent implements OnInit {
       var cognitoUser = new CognitoUser(userData);
       cognitoUser.authenticateUser(authenticationDetails, {
         onSuccess: (result) => {
+          console.log(result);
           this.router.navigate(["dashboard"])
         },
         onFailure: (err) => {
