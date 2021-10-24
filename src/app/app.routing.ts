@@ -6,6 +6,8 @@ import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { SigninComponent } from './signin/signin.component';
 import { AuthGuard } from './guards/auth.guard';
+import { AuthService } from './services/shared/auth.service';
+
 
 const routes: Routes =[
   {
@@ -17,7 +19,7 @@ const routes: Routes =[
     path: '',
     redirectTo: 'login',
     pathMatch: 'full',
-  }, 
+  },
   {
     path: '',
     component: AdminLayoutComponent,
@@ -25,7 +27,7 @@ const routes: Routes =[
       path: '',
       loadChildren: () => import('./layouts/admin-layout/admin-layout.module').then(m => m.AdminLayoutModule),
     }],
-    //canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   }
 ];
 
@@ -39,5 +41,6 @@ const routes: Routes =[
   ],
   exports: [
   ],
+  providers: [AuthService]
 })
 export class AppRoutingModule { }
