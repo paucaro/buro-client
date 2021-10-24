@@ -1,9 +1,30 @@
-<body>
-    <form (submit)="onSignIn(signInForm)" #signInForm="ngForm">
-        <label for="username"><b>Username</b></label>
-        <input name="username" ngModel type="username" #emailInput="ngModel" [(ngModel)]="username" username placeholder="Enter Username" required>
-      
-        <label for="password"><b>Password</b></label>
-        <input [(ngModel)]="password" ngModel type="password" #passwordInput="ngModel" required name="password" placeholder="Enter Password" >
-        <button type="submit">Login</button>
-</form>
+<div class="container">
+  <form (submit)="onSignIn(signInForm)" #signInForm="ngForm">
+
+    <div class="group">      
+        <input type="text" name="username"
+        ngModel
+        type="username"
+        #emailInput="ngModel"
+        [(ngModel)]="username"
+        username required>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>Username</label>
+      </div>
+
+      <div class="group">      
+        <input type="password" name="password"
+        ngModel
+        type="password"
+        #emailInput="ngModel"
+        [(ngModel)]="password"
+        username required>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>Password</label>
+      </div>
+
+    <button class="glow-on-hover" type="submit">Login</button>
+  </form>
+</div>
