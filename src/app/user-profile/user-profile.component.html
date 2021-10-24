@@ -4,82 +4,83 @@
           <div class="col-md-8">
               <div class="card">
                   <div class="card-header card-header-danger">
-                      <h4 class="card-title">Edit Profile</h4>
-                      <p class="card-category">Complete your profile</p>
+                      <h4 class="card-title">Solicitudes pendientes</h4>
+                      <p class="card-category">Aprobacion de usuarios por mayoria</p>
                   </div>
                   <div class="card-body">
-                      <form>
-                          <div class="row">
-                              <div class="col-md-5">
-                                <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Company (disabled)" disabled>
-                                  </mat-form-field>
-                              </div>
-                              <div class="col-md-3">
-                                  <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Username">
-                                  </mat-form-field>
-                              </div>
-                              <div class="col-md-4">
-                                  <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Email address" type="email">
-                                  </mat-form-field>
-                              </div>
-                          </div>
-                          <div class="row">
-                              <div class="col-md-6">
-                                <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Fist Name" type="text">
-                                </mat-form-field>
-                              </div>
-                              <div class="col-md-6">
-                                <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Last Name" type="text">
-                                </mat-form-field>
-                              </div>
-                          </div>
-                          <div class="row">
-                              <div class="col-md-12">
-                                <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Adress" type="text">
-                                </mat-form-field>
-                              </div>
-                          </div>
-                          <div class="row">
-                              <div class="col-md-4">
-                                <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="City" type="text">
-                                </mat-form-field>
-                              </div>
-                              <div class="col-md-4">
-                                <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Country" type="text">
-                                </mat-form-field>
-                              </div>
-                              <div class="col-md-4">
-                                <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Postal Code" type="text">
-                                </mat-form-field>
-                              </div>
-                          </div>
-                          <div class="row">
-                              <div class="col-md-12">
-                                <label>About Me</label>
-                                <mat-form-field class="example-full-width">
-                                   <textarea matInput placeholder="Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo."></textarea>
-                                 </mat-form-field>
-                                  <!-- <div class="form-group">
-
-                                      <div class="form-group">
-                                          <label class="bmd-label-floating"> Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</label>
-                                          <textarea class="form-control" rows="5"></textarea>
+                    <div class="tab-pane" id="settings">
+                      <table class="table">
+                          <tbody>
+                              <tr>
+                                  <td>
+                                      <div class="form-check">
+                                          <label class="form-check-label">
+                                              <input class="form-check-input" type="checkbox" value="">
+                                              <span class="form-check-sign">
+                                                  <span class="check"></span>
+                                              </span>
+                                          </label>
                                       </div>
-                                  </div> -->
-                              </div>
-                          </div>
-                          <button mat-raised-button type="submit" class="btn btn-danger pull-right">Update Profile</button>
-                          <div class="clearfix"></div>
-                      </form>
+                                  </td>
+                                  <td>Gustavo Ramirez Peralta</td>
+                                  <td>3/10</td>
+                                  <td class="td-actions text-right">
+                                    <button active=false mat-raised-button type="button" matTooltip="Aprobar" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
+                                        <i class="material-icons">check</i>
+                                    </button>
+                                    <button mat-raised-button type="button" matTooltip="Desaprobar" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                        <i class="material-icons">close</i>
+                                    </button>
+                                </td>
+                              </tr>
+                              <tr>
+                                  <td>
+                                      <div class="form-check">
+                                          <label class="form-check-label">
+                                              <input class="form-check-input" type="checkbox" value="" checked>
+                                              <span class="form-check-sign">
+                                                  <span class="check"></span>
+                                              </span>
+                                          </label>
+                                      </div>
+                                  </td>
+                                  <td>Maria Fernanda Calizaya Ramirez</td>
+                                    <td>3/10</td>
+                                  
+                                  <td class="td-actions text-right">
+                                      <button active=false mat-raised-button type="button" matTooltip="Aprobar" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
+                                          <i class="material-icons">check</i>
+                                      </button>
+                                      <button mat-raised-button type="button" matTooltip="Desaprobar" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                          <i class="material-icons">close</i>
+                                      </button>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td>
+                                      <div class="form-check">
+                                          <label class="form-check-label">
+                                              <input class="form-check-input" type="checkbox" value="" checked>
+                                              <span class="form-check-sign">
+                                                  <span class="check"></span>
+                                              </span>
+                                          </label>
+                                      </div>
+                                  </td>
+                                  <td>Gustavo Espinoza Arteaga</td>
+                                  <td>7/10</td>
+                                  <td class="td-actions text-right">
+                                    <button active=false mat-raised-button type="button" matTooltip="Aprobar" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
+                                        <i class="material-icons">check</i>
+                                    </button>
+                                    <button mat-raised-button type="button" matTooltip="Desaprobar" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                        <i class="material-icons">close</i>
+                                    </button>
+                                </td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
                   </div>
               </div>
           </div>
@@ -96,7 +97,7 @@
                       <p class="card-description">
                           Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
                       </p>
-                      <a href="javascript:void(0)" class="btn btn-danger btn-round">Follow</a>
+                      <a href="javascript:void(0)" class="btn btn-danger btn-round">Editar</a>
                   </div>
               </div>
           </div>
